@@ -13,31 +13,9 @@ interface Navprops{
 import { links } from '../Data'
 const Navbar = () => {
 
-    const [navbarIsFixed, setNavbarIsFixed] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-        const navbar = document.querySelector('hr') as HTMLHeadElement;
-    if ( navbar && window.pageYOffset >= navbar.offsetTop) {
-            setNavbarIsFixed(true);
-          } else {
-            setNavbarIsFixed(false);
-          }
-        };
+   
     
-        
-
-    
-        window.addEventListener('scroll', handleScroll);
-    
-        return () => {
-          window.removeEventListener('scroll', handleScroll);
-        };
-      }, []);
-    
-
-    
-  return <Wrapper navbarisFixed={navbarIsFixed}>
+  return <Wrapper>
     <header className='header'>
 
    
@@ -63,7 +41,11 @@ const Navbar = () => {
   </Wrapper>
 }
 
-const Wrapper=styled.article<Navprops>`
+const Wrapper=styled.header`
+position:sticky;
+top:0;
+width:100%;
+z-index:100;
     nav{
         
         display:flex;
@@ -90,12 +72,10 @@ const Wrapper=styled.article<Navprops>`
         display:none;
     }
 
-    header{
+    .header{
         padding:3px 20px ;
         background-color:black;
-        position:${props=> props.navbarisFixed?'fixed':'static'};
-        width:100%;
-        z-index:100;
+    
         
     
 

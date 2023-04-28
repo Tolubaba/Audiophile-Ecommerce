@@ -11,10 +11,11 @@ interface Productlist{
     Category:string
     description:string
     img:string
+    newproduct:boolean|null
 
 }
 
-const Product = ({id,name, Category,description,img}:Productlist) => {
+const Product = ({id,name, Category,description,img,newproduct}:Productlist) => {
     const {getsingleproduct}=useProductContext()
 
 
@@ -27,7 +28,9 @@ const Product = ({id,name, Category,description,img}:Productlist) => {
             <img src={img}/>
         </div>
         <div className='productword'>
-            <h1> new product</h1>
+
+            { newproduct && <h1> new product</h1>}
+            
             <h2> {name}</h2>
             <p>{description}</p>
             <Button  url={`/product/${id}`} color='white' background='#D87D4A' border='none' />

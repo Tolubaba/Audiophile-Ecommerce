@@ -19,7 +19,7 @@ product:Product[];
 getproduct:(name:string)=>void;
 featuredproduct:Product[]
 getsingleproduct:(id:number |string|undefined)=> void;
-singleproduct:Product []|undefined
+singleproduct?:Product
 
 
 }
@@ -29,7 +29,7 @@ singleproduct:Product []|undefined
 
     product:Product[],
     featuredproduct:Product[]
-    singleproduct:Product[] |undefined
+    singleproduct?:Product
 
 }
 
@@ -54,16 +54,32 @@ const  ProductContext= createContext({} as productcontex);
 
 
  export const Productprovider = ({children}:context) => {
-    const initialstate:stateprops={
-        product:[], 
-        featuredproduct:[],
-        singleproduct:[]
-    
-        
-    
-    }
+    const initialState: stateprops = {
+        product: [],
+        featuredproduct: [],
+        singleproduct: {
+          id: 0,
+          name: "",
+          Category: "",
+          description: "",
 
-    const [state,dispatch]=useReducer(reducer,initialstate)
+          img: "",
+          newproduct:null,
+          images: {
+            image1: "",
+            image2: "",
+            image3: "",
+          },
+          price: "",
+          text: "",
+          data: "",
+          size: [],
+          item: [],
+        },
+      };
+      
+
+    const [state,dispatch]=useReducer(reducer,initialState)
 
     
     const getproductall=()=>{

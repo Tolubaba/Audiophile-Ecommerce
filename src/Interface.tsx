@@ -10,6 +10,7 @@ export interface Product {
     Category:string;
     description:string
     img:string;
+    newproduct:boolean|null
     images:{
         image1:string;
         image2:string;

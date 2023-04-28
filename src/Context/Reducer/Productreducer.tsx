@@ -18,8 +18,7 @@ const Productreducer = (state:stateprops,action:ReducerAction):stateprops => {
 
     if(action.type===Reducer_action_tpe.GETSINGLEPRODUCT){
         
-     
-     return {...state,singleproduct:state.product.find((item)=>item.id==action.payload)}
+    return {...state,singleproduct:state.product.find((item)=>item.id==action.payload)}
     
 
     }

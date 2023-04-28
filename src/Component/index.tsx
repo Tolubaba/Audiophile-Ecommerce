@@ -10,5 +10,6 @@ import Footer from "./Footer";
 import Title from "./Title";
 import Productgroup from "./Productgroup";
 import Product from "./Product";
+import Amountbuttons from "./Amountbuttons";
 
-export {Navbar,Hero,List,Button,Speakerzx9,Speakerzx7,Earphone,Description,Footer,Title,Productgroup,Product} 
+export {Navbar,Hero,List,Button,Speakerzx9,Speakerzx7,Earphone,Description,Footer,Title,Productgroup,Product,Amountbuttons} 
