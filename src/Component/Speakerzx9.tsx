@@ -18,6 +18,7 @@ const Speakerzx9 = ({id}:Home) => {
 
     <Wrapper>
         <GlobalStyles/>
+        <div className='bigcircle'>
         
         <div className='circle'>
             <div className='circle1'>
@@ -25,6 +26,7 @@ const Speakerzx9 = ({id}:Home) => {
 
 </div>
 
+        </div>
         </div>
 
             <div className='speaker'>
@@ -51,9 +53,11 @@ const Speakerzx9 = ({id}:Home) => {
 
 const Wrapper=styled.section`
 background-color: #D87D4A;
-width:90%;
+width:100%;
 margin:0 auto;
 border-radius:5px;
+padding-bottom:30px;
+font-family:var(--fontfamily);
 
 .circle{
     width:310px;
@@ -85,8 +89,8 @@ border-radius:5px;
 }
 img{
     position:absolute;
-    top:30px;
-    left:50px;
+    top:40px;
+    left:60px;
     width:180px;
 }
 .speaker{
@@ -103,6 +107,7 @@ img{
         font-size:30px;
         
         width:50%;
+        max-width:200px;
         margin:0 auto;
         line-height:35px;
         font-weight:700;
@@ -113,6 +118,8 @@ img{
         opacity:0.85;
         font-weight:400;
         width:95%;
+        max-width:300px;
+        line-height:25px;
         margin:0 auto;
     }
 
@@ -120,6 +127,110 @@ img{
         margin: 0 auto;
     }
 
+}
+
+@media screen and (min-width:690px) {
+    .speaker{
+
+        h1{
+            font-size:35px;
+            line-height:40px;
+            width:100%;
+            max-width:220px;
+        }
+        p{
+            font-size:16px;
+            line-height:30px;
+            max-width:310px;
+        }
+    }
+    
+}
+
+@media screen and (min-width: 1000px) {
+    display:flex;
+    margin:0;
+    padding-left:4rem;
+    padding-top:20px;
+    gap:2%;
+
+
+    .circle{
+
+        width:350px;
+        height:350px;
+        margin:0;
+        
+    }
+
+    .circle1{
+        width:300px;
+        height:300px;
+        margin:0;
+    
+    }
+
+    .speaker{
+        top:0;
+        text-align:initial;
+        padding-top:70px;
+        
+
+        h1{
+    margin:0;
+    font-size:45px;
+    line-height:50px;
+}
+
+p{
+    
+}
+
+
+button{
+    margin:0;
+}
+    }
+    img{
+        width:95%;
+        top:-50px;
+        left:10px;
+    }
+
+
+    .bigcircle{
+    width:510px;
+    height:510px;
+    border-radius:100%;
+    border:1px solid;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border: 1px solid rgba(255, 255, 255,0.4);
+
+    position:relative;
+    
+    
+}
+padding-bottom:0;
+margin-bottom:40px;
+
+
+
+    
+}
+
+@media screen and (min-width:1200px) {
+    .speaker{
+        top:0;
+        text-align:initial;
+        padding-top:70px;
+        left:10%;
+    }
+
+
+    
 }
 
     

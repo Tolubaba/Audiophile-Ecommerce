@@ -11,11 +11,14 @@ const Earphones = () => {
   return (
     <Wrapper>
       <Title title='earphone'/>
-      <Productgroup name='earphones'/>
+      <section className='section'>
+        <Productgroup name='earphones'/>
       <List/>
       
       <Description/>
-      <Footer/>
+      </section>
+
+   <Footer/>
       
 
     </Wrapper>
@@ -25,6 +28,11 @@ const Earphones = () => {
 
 
 const Wrapper= styled.section`
+
+.section{
+  width:85%;
+  margin:0 auto;
+}
 
 `
 

@@ -11,10 +11,15 @@ const Speakers = () => {
   return (
     <Wrapper>
       <Title title='speaker'/>
+      <section className='section'>
+
+      
       <Productgroup name='speakers'/>
       <List/>
       
       <Description/>
+      
+      </section>
       <Footer/>
       
 
@@ -25,6 +30,10 @@ const Speakers = () => {
 
 
 const Wrapper= styled.section`
+.section{
+  width:85%;
+  margin:0 auto;
+}
 
 `
 

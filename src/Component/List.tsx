@@ -39,7 +39,7 @@ const Wrapper= styled.div`
 
 
 .list{
- width:90%;
+ width:100%;
  margin:0 auto;
  margin-top:50px;
 }
@@ -90,6 +90,48 @@ font-family: 'Manrope', sans-serif;
         }
     }
 
+}
+
+@media screen  and (min-width:690px) {
+    .list{
+        display:flex; 
+        gap:20px;
+        align-items:center;
+        margin-bottom:40px;
+        padding:30px 0;
+
+
+
+    }
+
+    .shoplist{
+        width:100%;
+        margin-bottom:0;
+        height:30vh;
+        img{
+            width:65px;
+            top:-30px;
+        }
+        
+        
+}
+}
+
+
+@media screen and (min-width:100px) {
+
+    .shoplist{
+        width:100%;
+        margin-bottom:0;
+        height:30vh;
+        img{
+            width:85px;
+            top:-30px;
+        }
+        
+        
+}
+    
 }
 
 `

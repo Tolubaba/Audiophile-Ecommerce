@@ -2,6 +2,7 @@ import React from 'react'
 import { Route,Routes } from 'react-router-dom'  
 import Navbar from './Component/Navbar'
 import { Home,Headphones,Speakers,Earphones, Singleproductdetail} from './Pages'
+import Mypage from './Pages/Mypage'
 
 
 

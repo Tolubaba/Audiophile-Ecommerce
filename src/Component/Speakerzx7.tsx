@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import mobile from '../images/mobile.png'
+import speaker from '../images/speaker-table.png'
+import tablet from '../images/tablet.png'
 import Button from './Button'
 import GlobalStyles from './Globalstyles'
 import { Home } from '../Interface'
@@ -33,8 +35,8 @@ const Wrapper=styled.section`
     background-position:center;
     background-repeat:no-repeat;
     background-size: cover; 
-    width:90%;
-    min-height:50vh;
+    width:100%;
+    height:50vh;
     margin:0 auto;
     margin-top:20px;
     border-radius:5px;
@@ -63,6 +65,42 @@ const Wrapper=styled.section`
         display:block
     }
     
+}
+
+
+@media screen and  (min-width:690px) {
+.speaker{
+    background-image:url(${tablet});
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover; 
+    width:100%;
+    height:60vh;
+
+    h1{
+        font-size:35px;
+    }
+    
+}
+    
+}
+
+
+@media screen and (min-width:1000px) {
+ 
+    .speaker{
+        background-image:url(${speaker});
+        height:50vh;
+
+        h1{
+            font-size:40px;
+        }
+        
+
+        
+    }
+    margin-bottom:40px;
+
 }
 `
 

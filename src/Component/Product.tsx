@@ -49,7 +49,7 @@ const Wrapper= styled.section`
 display:flex;
 flex-direction:column;
 font-family:var(--fontfamily);
-width:90%;
+width:100%;
 margin:0 auto;
 margin-bottom:100px;
 
@@ -95,10 +95,42 @@ margin-bottom:100px;
         line-height:35px;
     }
     p{
-        width:84%;
+        width:95%;
         margin:0 auto;
         line-height:25px;
         opacity: 0.8;
     }
+
+    
+@media screen and (min-width:690px) {
+    .imagediv{
+    height:60vh;
+
+    
+
+}
+.productword{
+    gap:20px;
+}
+
+h2{
+    font-size:30px;
+}
+p{
+    max-width:600px;
+}
+h1{
+    font-size:15px;
+}
+    
+}
+@media screen and (min-width:1000px) {
+    flex-direction:row;
+
+    .imagediv{
+        width:100%;
+    }
+}
+
 `
 export default Product

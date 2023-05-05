@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import  group from '../images/Group.png'
 import  cart from '../images/cart.png'
 import { useState,useEffect } from 'react'
+import GlobalStyles from './Globalstyles'
 
 interface Navprops{
     navbarisFixed:boolean;
@@ -16,6 +17,8 @@ const Navbar = () => {
    
     
   return <Wrapper>
+
+    <GlobalStyles/>
     <header className='header'>
 
    
@@ -34,7 +37,7 @@ const Navbar = () => {
  
  
 </nav>
-<hr></hr>
+
 </header>
 
 
@@ -42,6 +45,7 @@ const Navbar = () => {
 }
 
 const Wrapper=styled.header`
+font-family:var(--fontfamily);
 position:sticky;
 top:0;
 width:100%;
@@ -51,8 +55,10 @@ z-index:100;
         display:flex;
         justify-content:space-between;
         align-items:center;
-        margin-bottom:10px;
-        padding:10px 0;
+        padding:20px 0px;
+        border-bottom:1px solid white;
+        width:90%;
+        margin:0 auto;
 
         .group{
             display:block;
@@ -73,16 +79,37 @@ z-index:100;
     }
 
     .header{
-        padding:3px 20px ;
-        background-color:black;
-    
         
-    
+        background-color:black;
+        
+    }
 
-        hr{
-            opacity:0.8;
-            color:white;
+    @media screen and (min-width: 1000px) {
+
+        nav{
+
+            .group{
+                display:none;
+            }
         }
+        .linksul{
+            display:block;
+            display:flex;
+            list-style:none;
+            margin-right:10%;
+            font-weight:700;
+            gap:20px;
+            
+        
+
+            a{
+                color:white;
+                text-transform:uppercase;
+                text-decoration:none;
+            }
+        }
+
+
     }
 
     

@@ -8,38 +8,52 @@ import GlobalStyles from '../Component/Globalstyles';
 import { formatPrice } from '../helpers';
 import { Price } from '../helpers';
 import Addtocart from '../Component/Addtocart';
+import { Description } from '../Component';
+import {Footer} from '../Component';
+import {List} from '../Component';
+import { useNavigate } from 'react-router-dom';
+
 
 const Singleproductdetail = () => {
     const {id}=useParams();
-    const {getsingleproduct,singleproduct}=useProductContext();
+    const navigate = useNavigate();
+
+  const {getsingleproduct,singleproduct}=useProductContext();
 
     useEffect(()=>{
       getsingleproduct(id)
     },[id])
 
+    if(!singleproduct){
+      return null
+    }
 
-    if(singleproduct){
-      const {id,name,Category,description,img,images,price,newproduct,text,data,size,item}=singleproduct
-      let numberprice= parseInt(price)
-      
-      console.log(singleproduct)
-      console.log(newproduct)
-      console.log(numberprice)
-      const newprice: Price = {
-        newprice: numberprice, // Your numeric value representing the price
-      };
-      
-  
-      
+    const {name,Category,description,img,images,price,newproduct,text,data,size,item}=singleproduct
+    let numberprice= parseInt(price)
+    
+    console.log(singleproduct)
+    console.log(newproduct)
+    console.log(numberprice)
+    const newprice: Price = {
+      newprice: numberprice, // Your numeric value representing the price
+    }
+
 
       return <Wrapper>
         <GlobalStyles/>
+        <section className='section'>
+
+        
         <div className='goback'>
-        <Link to='/'> Go Back</Link>
+        <button className='btngoback' onClick={() => navigate(-1)}>Go Back</button>
+
+        
 
         </div>
 
         <article>
+
+          <div className='first'>
           <div className='firstimage'>
             <img src={img}/>
 
@@ -53,13 +67,16 @@ const Singleproductdetail = () => {
             newproduct && <p className='newproduct'> new product</p>
   
           }
-          <h2>
+          <h2 className='name'>
           {name}  
           </h2>
-          <p className='description'>{description}</p>
+          <p className='descriptions'>{description}</p>
         
           <p className='price'>{formatPrice(newprice)}</p>
           <Addtocart/>
+          </div>
+          </div>
+          
 
           <div className='featureword'>
 
@@ -91,35 +108,64 @@ const Singleproductdetail = () => {
 
 
           </div>
+          <div className='images'>
+            <div className='images1'>
+            <img className='img' src={images.image1}/>
+            <img  className='img' src={images.image3}/>
+            </div>
 
+            <div className='divbigimg'>
+              <img className='bigimg' src={images.image2}/>
 
+            </div>
 
           </div>
 
 
 
+          
+          
+
+
+
         </article>
+        <List/>
+        <Description/>
+          
+           </section>
+
+          
+           <Footer/>
+           
 
     </Wrapper>
-    }
+    
+    
 
    
 }
 
 const Wrapper=styled.section`
 font-family:var(--fontfamily);
-width:90%;
+.section{
+  width:90%;
 margin:0 auto;
-margin-bottom:100px;
+}
+
+
 
 .goback{
   padding:10px 0;
-  a{
+  margin-bottom:20px;
+  button{
     text-decoration:none;
     color:black;
     opacity:0.7;
   }
-  
+  .btngoback{
+    border:none;
+    background:transparent;
+  }
   
 }
 
@@ -133,12 +179,16 @@ margin-bottom:100px;
     width:180px;
   }
 }
+.name{
+  font-weight:700;
+}
 
 .second{
   margin-top:20px;
   display:flex;
   flex-direction:column;
   gap:25px;
+
 }
 .newproduct{
     text-transform:uppercase;
@@ -150,10 +200,10 @@ margin-bottom:100px;
 
 .price{
   font-weight:700;
-  letter-spacing:2px;
+  letter-spacing:1px;
 }
 
-.description{
+.descriptions{
   width:85%;
   line-height:25px;
   opacity:0.7;
@@ -166,7 +216,7 @@ margin-bottom:100px;
   h3{
     text-transform:uppercase;
     letter-spacing:3px;
-    font-weight:700;
+    font-weight:bold;
   }
 }
 
@@ -181,7 +231,7 @@ margin-bottom:100px;
 }
 
 .box{
-  margin-top:40px;
+  margin-top:45px;
   h2{
     text-transform:uppercase;
   }
@@ -204,8 +254,105 @@ margin-bottom:100px;
   .list{
     opacity:0.7;
   }
+  
+
+
 
 }
+.images{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:40px;
+}
+
+.img{
+  width:100%;
+  display:inline-block;
+  max-height:60vh;
+}
+
+.bigimg{
+  width:100%;
+  max-height:100vh;
+  
+}
+
+@media screen and (min-width:690px) {
+
+  .first{
+    display:flex;
+    gap:8%;
+  
+    
+  }
+
+  .firstimage{
+    width:80%;
+    height:75vh;
+    max-width:350px;
+    margin:0;
+  
+
+  }
+
+  .second{
+    padding-top:20px;
+    width:100%;
+    gap:20px;
+    margin:0;
+  }
+
+  .name{
+
+    font-size:30px;
+    max-width:210px;
+    line-height:40px;
+  }
+
+  .descriptions{
+    width:85%;
+    line-height:25px;
+  }
+
+
+  .box{
+  display:flex;
+  gap:40%;
+}
+.sizebox{
+  margin-top:0;
+}
+.images{
+  flex-direction:row;
+  align-items:center;
+  max-width:1000px;
+  margin: 0 auto;
+  margin-top:40px;
+  margin-bottom:40px;
+  height:75vh;
+
+  .img{
+height:34vh;
+  }
+
+}
+.images1{
+  width:100%;
+  height:70vh;
+}
+.divbigimg{
+  width:100%;
+  
+}
+
+.bigimg{
+  height:70vh;
+}
+
+
+}
+
 
     
 `

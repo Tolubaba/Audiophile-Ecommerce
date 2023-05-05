@@ -10,12 +10,16 @@ const Headphones = () => {
   return (
     <Wrapper>
       <Title title='headphone'/>
+      <section className='section'>
+
+      
       <Productgroup name='headphones'/>
       <List/>
       
       <Description/>
-      <Footer/>
       
+      </section>
+      <Footer/>
 
     </Wrapper>
   )
@@ -24,6 +28,10 @@ const Headphones = () => {
 
 
 const Wrapper= styled.section`
+.section{
+  width:85%;
+  margin:0 auto;
+}
 
 `
 

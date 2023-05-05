@@ -51,7 +51,7 @@ const Wrapper=styled.section`
 font-family:var(--fontfamily);
 display:flex;
 justify-content:space-between;
-max-width:350px;
+max-width:300px;
 
 .addtocart{
   text-transform:uppercase;

@@ -27,6 +27,8 @@ const Button = ({ url, color, background,border}: ButtonProps) => {
 const Wrapper = styled.button<{background:string, color:string, border:string}>`
   width: 150px;
   display: block;
+  cursor: pointer;
+ 
   
   padding: 12px;
   font-weight: 500;
@@ -38,6 +40,11 @@ const Wrapper = styled.button<{background:string, color:string, border:string}>`
   a {
     text-decoration: none;
     color: ${({color}) => color};
+  }
+
+  @media screen and (min-width: 1000px) {
+    height:45px;
+    
   }
 `
 

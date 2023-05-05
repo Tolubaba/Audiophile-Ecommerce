@@ -37,7 +37,7 @@ margin-top:20px;
     flex-direction:column;
     gap:20px;
     font-family:var(--fontfamily);
-    width:90%;
+    width:100%;
     margin:0 auto;
     
 }
@@ -58,7 +58,7 @@ margin-top:20px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         width:100%;
         margin:0 auto;
-        min-height:30vh;
+        min-height:40vh;
         padding-top:30px;
         padding-left:30px;
         display:flex;
@@ -70,7 +70,45 @@ margin-top:20px;
 font-weight:700;
     }
 
+@media screen and (min-width:690px) {
+    .earphone{
+    flex-direction:row;
+    }
 
+    .mobile{
+        display:none;
+    }
+    .tablet{
+        display:block;
+        min-height:30vh;
+        max-height:50vh;
+        width:100%;
+    }
+
+    .earphoneword{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        h1{
+            font-size:30px;
+        }
+
+    }
+    
+}
+
+@media screen and (min-width:1000px) {
+    .tablet{
+        display:none;
+}
+
+.mobile{
+    display:block;
+}
+
+margin-bottom:40px;
+    
+}
 
 `
 
