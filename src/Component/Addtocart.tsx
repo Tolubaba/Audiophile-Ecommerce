@@ -3,12 +3,30 @@ import styled from 'styled-components'
 import GlobalStyles from './Globalstyles'
 import { useState } from 'react';
 import Amountbuttons from './Amountbuttons';
-
-const Addtocart = () => { 
-
-const [amount,setamount]=useState<number>(1)
+import { Product } from '../Interface';
+import { useCartContext } from '../Context/cartcontext';
 
 
+  export interface SingleProduct{
+  id: string | undefined
+  img:string
+  price:string
+  name: string
+}
+
+
+const Addtocart = ({id,img,price,name}:SingleProduct) => { 
+
+  const {addtocart}=useCartContext()
+
+
+
+
+const open=()=>{
+  console.log(id,img,price,name,amount)
+}
+
+const [amount,setamount]=useState<number>(1) 
 
 const increase=():void =>{
      setamount((oldamount:number):number=>{
@@ -38,9 +56,9 @@ const decrease=():void=>{
   return (
     <Wrapper>
         <GlobalStyles/>
-    <Amountbuttons increase={increase} decrease={decrease} amount={amount}/>
+    <Amountbuttons increase={increase} decrease={decrease} amount={amount}  width={`150px`} height={`35px`} font_Size={`12.5px`} fontsize={`10px`}/>
     <div className='addtocart'>
-      <p> add to cart</p>
+      <p onClick={()=>addtocart(id,name,img,price,amount)}> add to cart</p>
     </div>
     </Wrapper>
   )
@@ -52,6 +70,7 @@ font-family:var(--fontfamily);
 display:flex;
 justify-content:space-between;
 max-width:300px;
+cursor: pointer;
 
 .addtocart{
   text-transform:uppercase;

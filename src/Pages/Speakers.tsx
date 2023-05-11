@@ -10,7 +10,7 @@ const Speakers = () => {
 
   return (
     <Wrapper>
-      <Title title='speaker'/>
+      <Title title='speakers'/>
       <section className='section'>
 
       

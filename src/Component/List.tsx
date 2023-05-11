@@ -42,6 +42,7 @@ const Wrapper= styled.div`
  width:100%;
  margin:0 auto;
  margin-top:50px;
+ 
 }
 
 .shoplist{
@@ -54,6 +55,7 @@ border-radius:5px;
 padding:20px 20px;
 position:relative;
 font-family: 'Manrope', sans-serif;
+
 
 
     
@@ -118,7 +120,11 @@ font-family: 'Manrope', sans-serif;
 }
 
 
-@media screen and (min-width:100px) {
+@media screen and (min-width:1000px) {
+
+    .list{
+        margin-bottom:70px;
+    }
 
     .shoplist{
         width:100%;

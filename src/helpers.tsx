@@ -2,6 +2,10 @@
  export interface Price{
     newprice:number
 }
+ interface newprice{
+    price:string
+ }
+
 
 export const formatPrice = ({newprice}:Price) => {
     const newnumber=Intl.NumberFormat('en-US',{
@@ -14,3 +18,15 @@ export const formatPrice = ({newprice}:Price) => {
     }).format(newprice)
     return newnumber;
 }
+
+
+  
+    
+export const formatPricee=(price: number): string =>{
+    return price.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    });
+  }
+  
+

@@ -1,8 +1,11 @@
 import React from 'react'
 import { Route,Routes } from 'react-router-dom'  
-import Navbar from './Component/Navbar'
+import Navbar from './Component/Navbar';
 import { Home,Headphones,Speakers,Earphones, Singleproductdetail} from './Pages'
+import { Cart } from './Component';
 import Mypage from './Pages/Mypage'
+import { useState } from 'react';
+import { useCartContext } from './Context/cartcontext';
 
 
 
@@ -10,10 +13,15 @@ import Mypage from './Pages/Mypage'
 
 
 const App = () => {
+
+  const  { cartopen,opencart}=useCartContext()
+
+  
   return (
     
   <>
-  <Navbar/>
+  <Navbar cartopen={cartopen}/>
+  {opencart && <Cart/>}
   <Routes>
     <Route path='/' element={<Home/>}/>
     <Route path='/headphones' element={<Headphones/>}/>

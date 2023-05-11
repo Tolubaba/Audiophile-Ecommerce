@@ -30,10 +30,7 @@ const Singleproductdetail = () => {
 
     const {name,Category,description,img,images,price,newproduct,text,data,size,item}=singleproduct
     let numberprice= parseInt(price)
-    
-    console.log(singleproduct)
-    console.log(newproduct)
-    console.log(numberprice)
+  
     const newprice: Price = {
       newprice: numberprice, // Your numeric value representing the price
     }
@@ -73,7 +70,7 @@ const Singleproductdetail = () => {
           <p className='descriptions'>{description}</p>
         
           <p className='price'>{formatPrice(newprice)}</p>
-          <Addtocart/>
+          <Addtocart id={id}  img={img} price={price} name={name}/>
           </div>
           </div>
           
@@ -148,7 +145,7 @@ const Singleproductdetail = () => {
 const Wrapper=styled.section`
 font-family:var(--fontfamily);
 .section{
-  width:90%;
+  width:85%;
 margin:0 auto;
 }
 
@@ -157,6 +154,8 @@ margin:0 auto;
 .goback{
   padding:10px 0;
   margin-bottom:20px;
+  display:flex;
+  align-items:center;
   button{
     text-decoration:none;
     color:black;
@@ -274,8 +273,7 @@ margin:0 auto;
 
 .bigimg{
   width:100%;
-  max-height:100vh;
-  
+  max-height:60vh;
 }
 
 @media screen and (min-width:690px) {
@@ -352,6 +350,46 @@ height:34vh;
 
 
 }
+
+@media screen and (min-width:1000px){
+
+  .firstimage{
+    width:80%;
+    max-width:none;
+    height:60vh;
+  }
+
+  .second{
+    width:80%
+  }
+
+  .featureword{
+    display:flex;
+    gap:10%;
+    margin-top:70px;
+    
+  }
+
+  .box{
+    flex-direction:column;
+    width:80%;
+    gap:0;
+    margin: 0;
+    gap:25px;
+  }
+
+  .featurefirst{
+    width:80%;
+    
+  }
+
+  .goback{
+    padding:20px 0;
+    font-weight:700;
+  }
+
+}
+
 
 
     

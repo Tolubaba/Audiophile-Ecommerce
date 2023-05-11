@@ -16,7 +16,7 @@ interface Productlist{
 }
 
 const Product = ({id,name, Category,description,img,newproduct}:Productlist) => {
-    const {getsingleproduct}=useProductContext()
+    const {getsingleproduct}=useProductContext();
 
 
   return (
@@ -24,10 +24,10 @@ const Product = ({id,name, Category,description,img,newproduct}:Productlist) => 
     <Wrapper>
         <GlobalStyles/>
 
-        <div className='imagediv'>
+        <div className={`imagediv ${Category}${id}`}>
             <img src={img}/>
         </div>
-        <div className='productword'>
+        <div className={`productword ${name}`}>
 
             { newproduct && <h1> new product</h1>}
             
@@ -126,10 +126,67 @@ h1{
 }
 @media screen and (min-width:1000px) {
     flex-direction:row;
+    gap:5%;
 
     .imagediv{
-        width:100%;
+        width:80%;
+        img{
+            width:200px;
+        }
+
+    } 
+
+    .productword{
+        width:80%;
+        text-align:initial;
+        padding-left:40px;
+        margin-top:10px;
+    
     }
+
+
+    .imagediv.headphones2 {
+        order:2;
+
+    }
+
+    .productword.headphones2{
+        order:1;
+    }
+
+    .imagediv.speakers5{
+        order:2;
+
+    }
+
+    .productword.speakers5{
+        order:1;
+    }
+
+    h2{
+        margin:0;
+        width:60%;
+    }
+
+    button{
+        margin:0;
+    }
+p{
+    margin:0;
+    width:90%;
+}
+
+}
+
+@media screen  and (min-width:1200px){   
+    .productword{
+        width:80%;
+        text-align:initial;
+        padding-left:40px;
+        padding-top:20px;
+        margin-top:0;
+    
+    } 
 }
 
 `

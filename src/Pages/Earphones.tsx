@@ -10,7 +10,7 @@ const Earphones = () => {
 
   return (
     <Wrapper>
-      <Title title='earphone'/>
+      <Title title='earphones'/>
       <section className='section'>
         <Productgroup name='earphones'/>
       <List/>

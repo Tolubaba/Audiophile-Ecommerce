@@ -40,6 +40,7 @@ margin:0 auto;
 margin-top:30px;
 display:flex;
 flex-direction:column;
+margin-bottom:50px;
 gap:30px;
 }
     .tablet{
@@ -54,7 +55,7 @@ gap:30px;
     }
     h3{
         text-transform:uppercase;
-        width:80%;
+        width:100%;
         margin:0 auto;
         line-height:25px;
         font-weight:700;
@@ -102,6 +103,7 @@ gap:30px;
     @media screen  and (min-width:1000px){
     .description{
         flex-direction:row;
+        margin-bottom:70px;
     }
         
     .descriptionword{

@@ -11,5 +11,6 @@ import Title from "./Title";
 import Productgroup from "./Productgroup";
 import Product from "./Product";
 import Amountbuttons from "./Amountbuttons";
+import Cart from "./Cart";
 
-export {Navbar,Hero,List,Button,Speakerzx9,Speakerzx7,Earphone,Description,Footer,Title,Productgroup,Product,Amountbuttons} 
+export {Navbar,Hero,List,Button,Speakerzx9,Speakerzx7,Earphone,Description,Footer,Title,Productgroup,Product,Amountbuttons,Cart} 

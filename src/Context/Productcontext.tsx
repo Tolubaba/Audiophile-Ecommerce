@@ -7,7 +7,7 @@ import { useReducer } from 'react';
 import reducer from './Reducer/Productreducer';
 
 
-interface context {
+ export interface context {
     children:ReactNode
 }
 
@@ -18,7 +18,7 @@ getproductall :()=>void
 product:Product[];
 getproduct:(name:string)=>void;
 featuredproduct:Product[]
-getsingleproduct:(id:number |string|undefined)=> void;
+getsingleproduct:(id:string|undefined)=> void;
 singleproduct?:Product
 
 

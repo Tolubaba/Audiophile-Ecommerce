@@ -9,7 +9,7 @@ const Headphones = () => {
 
   return (
     <Wrapper>
-      <Title title='headphone'/>
+      <Title title='headphones'/>
       <section className='section'>
 
       

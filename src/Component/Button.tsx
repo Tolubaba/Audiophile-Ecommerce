@@ -27,10 +27,8 @@ const Button = ({ url, color, background,border}: ButtonProps) => {
 const Wrapper = styled.button<{background:string, color:string, border:string}>`
   width: 150px;
   display: block;
-  cursor: pointer;
- 
-  
-  padding: 12px;
+ cursor:pointer;
+ padding: 12px;
   font-weight: 500;
   background: ${({ background }) => background};
   

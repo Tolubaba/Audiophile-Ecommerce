@@ -7,12 +7,16 @@ import  cart from '../images/cart.png'
 import { useState,useEffect } from 'react'
 import GlobalStyles from './Globalstyles'
 
-interface Navprops{
-    navbarisFixed:boolean;
+interface open {
+    cartopen :()=>void
 }
 
+
 import { links } from '../Data'
-const Navbar = () => {
+
+const Navbar = ({cartopen}:open) => {
+
+ 
 
    
     
@@ -33,7 +37,11 @@ const Navbar = () => {
         return <li key={item.id} className='links'><Link to={item.url}> {item.text}</Link></li>
     })}
  </ul>
- <img src={cart}/>
+ <div>
+ <img src={cart} onClick={cartopen}/>
+ <span cart-value> </span>
+ </div>
+ 
  
  
 </nav>
@@ -106,6 +114,11 @@ z-index:100;
                 color:white;
                 text-transform:uppercase;
                 text-decoration:none;
+
+                &:hover{
+                    color:#D87D4A;
+
+                }
             }
         }
 

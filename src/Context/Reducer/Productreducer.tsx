@@ -2,7 +2,7 @@ import React from 'react';
 import {ReducerAction,Reducer_action_tpe} from'../Productcontext';
 import { stateprops, } from '../Productcontext';
 import { Product } from '../../Interface';
-const Productreducer = (state:stateprops,action:ReducerAction):stateprops => {
+const Productreducer = (state:stateprops,action:ReducerAction) => {
     
     if(action.type===Reducer_action_tpe.GETPRODUCTALL){
 
