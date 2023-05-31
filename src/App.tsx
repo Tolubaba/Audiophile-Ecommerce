@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route,Routes } from 'react-router-dom'  
 import Navbar from './Component/Navbar';
-import { Home,Headphones,Speakers,Earphones, Singleproductdetail} from './Pages'
+import { Home,Headphones,Speakers,Earphones, Singleproductdetail,Checkout} from './Pages'
 import { Cart } from './Component';
 import Mypage from './Pages/Mypage'
 import { useState } from 'react';
@@ -28,6 +28,7 @@ const App = () => {
     <Route path='/earphones' element={<Earphones/>}/>
     <Route path='/speakers' element={<Speakers/>}/>
     <Route path='/product/:id' element={<Singleproductdetail/>}/>
+    <Route path='/checkout' element={<Checkout/>}/>
 
 
   </Routes>

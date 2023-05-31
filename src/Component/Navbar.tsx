@@ -6,15 +6,17 @@ import  group from '../images/Group.png'
 import  cart from '../images/cart.png'
 import { useState,useEffect } from 'react'
 import GlobalStyles from './Globalstyles'
+import { useCartContext } from '../Context/cartcontext'
 
 interface open {
-    cartopen :()=>void
+    cartopen :()=>void;
 }
 
 
 import { links } from '../Data'
 
 const Navbar = ({cartopen}:open) => {
+    const { totalitems}=useCartContext();
 
  
 
@@ -37,9 +39,12 @@ const Navbar = ({cartopen}:open) => {
         return <li key={item.id} className='links'><Link to={item.url}> {item.text}</Link></li>
     })}
  </ul>
- <div>
- <img src={cart} onClick={cartopen}/>
- <span cart-value> </span>
+ <div className='cartcontainer' onClick={cartopen}>
+ <img src={cart} />
+ { totalitems>=1?<span className='cartvalue'>
+    {totalitems}
+     </span>:null }
+ 
  </div>
  
  
@@ -90,6 +95,25 @@ z-index:100;
         
         background-color:black;
         
+    }
+    .cartcontainer{
+        position:relative;
+        cursor:pointer;
+    }
+
+    .cartvalue{
+        color:white;
+        height:20px;
+        width:20px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background-color:#D87D4A;
+        font-size:11px;
+        position:absolute;
+        border-radius:100%;
+        top:-12px;
+        right:-10px;
     }
 
     @media screen and (min-width: 1000px) {

@@ -12,7 +12,7 @@ import { formatPricee } from '../helpers';
 
 const Cart = () => {
 
-  const {cart,removeall,toggleamount,totalamount,cartopen}=useCartContext()
+  const {cart,removeall,toggleamount,totalamount,cartopen,totalitems}=useCartContext()
   return (
     <Wrapper>
       <GlobalStyles/>
