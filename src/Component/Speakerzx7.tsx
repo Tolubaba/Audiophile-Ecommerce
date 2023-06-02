@@ -36,7 +36,7 @@ const Wrapper=styled.section`
     background-repeat:no-repeat;
     background-size: cover; 
     width:100%;
-    height:50vh;
+    height:40vh;
     margin:0 auto;
     margin-top:20px;
     border-radius:5px;

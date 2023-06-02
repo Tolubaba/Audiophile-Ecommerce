@@ -49,7 +49,7 @@ gap:30px;
 
     .mobile{
 
-        height:60vh;
+        height:50vh;
         width:100%;
         display:block;
     }

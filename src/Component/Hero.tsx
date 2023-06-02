@@ -57,14 +57,12 @@ const Wrapper= styled.article`
   width:100%;
 
  .Hero{
-   background-image:url(${bitmap});
+   background-image:url(${backgroundimage2});
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-color:black;
   height: 80vh;
-
-
   text-align:center;
   padding-top:7rem;
 

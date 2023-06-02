@@ -58,7 +58,7 @@ margin-top:20px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         width:100%;
         margin:0 auto;
-        min-height:40vh;
+        min-height:30vh;
         padding-top:30px;
         padding-left:30px;
         display:flex;
