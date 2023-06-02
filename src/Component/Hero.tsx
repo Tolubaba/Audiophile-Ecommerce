@@ -62,7 +62,7 @@ const Wrapper= styled.article`
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-color:black;
-  height: 80vh;
+  height: 60vh;
   text-align:center;
   padding-top:7rem;
 
