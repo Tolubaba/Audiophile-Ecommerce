@@ -20,6 +20,9 @@ getproduct:(name:string)=>void;
 featuredproduct:Product[]
 getsingleproduct:(id:string|undefined)=> void;
 singleproduct?:Product
+thanks:Boolean
+setthanks:React.Dispatch<React.SetStateAction<Boolean>>
+
 
 
 }
@@ -81,6 +84,8 @@ const  ProductContext= createContext({} as productcontex);
 
     const [state,dispatch]=useReducer(reducer,initialState)
 
+    const [thanks,setthanks]=useState<Boolean>(false)
+
     
     const getproductall=()=>{
     dispatch({type:Reducer_action_tpe.GETPRODUCTALL, payload:products})
@@ -101,7 +106,7 @@ const  ProductContext= createContext({} as productcontex);
 
 
   return (
-    <ProductContext.Provider value={{ ...state,getproductall,getproduct, getsingleproduct,}}>
+    <ProductContext.Provider value={{ ...state,getproductall,getproduct, getsingleproduct,thanks,setthanks}}>
         {children}
 
 

@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useCartContext } from '../Context/cartcontext';
 import { Price, formatPrice,formatPricee } from '../helpers';
+import { Thankyou,Footer } from '../Component';
+import { useProductContext } from '../Context/Productcontext';
 
 interface Formvalues{
   name:string,
@@ -22,8 +24,11 @@ const Checkout = () => {
   let shippingprice=50;
   const navigate = useNavigate();
   const {cart,totalamount}=useCartContext()
+  const {setthanks,thanks}=useProductContext()
   const [isFocused, setIsFocused] = useState<Boolean>(false);
   const [isFocused2,setIsFocused2] = useState<Boolean>(false);
+
+  const [radiovalue,setradiovalue]=useState<String>('')
   
 
   const handleDivClick = () => {
@@ -82,7 +87,7 @@ const Checkout = () => {
     }
 
     if(!email){
-      newerrors.email
+      newerrors.email='email is required'
     }
     else if (! /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\. [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.
     test(email)){
@@ -100,10 +105,15 @@ const Checkout = () => {
     if(!city){
       newerrors.city='city is required'
     }
+    if(!country){
+      newerrors.country='country is required'
+    }
+
     if(!code){
       newerrors.code='code is required'
     }
 
+   
 
 setError(newerrors)
   }
@@ -119,6 +129,28 @@ setError(newerrors)
      const {name,value}=e.target;
      setformvalues({...formvalues,[name]:value})
   }
+
+  const handleradiochange=(e:React.ChangeEvent<HTMLInputElement>)=>{
+
+    setradiovalue(e.target.value)
+  }
+
+  const thankyou=()=>{
+    const {name,email,address,city,code,country}=formvalues;
+    if(cart.length>0){
+      if(name){
+        setthanks(true)
+      
+  
+      } 
+  
+    }
+    
+    console.log(thanks)
+
+    }
+
+
 
 
   return (
@@ -139,20 +171,20 @@ setError(newerrors)
              <div className='firstform'>
               <div className='formname'>
                 <label className='label'>name{Error.name && <small>{Error.name}</small> }  </label>
-              <input className='input' type='text' name='name' value={formvalues.name} onChange={handlechange}/>
+              <input className={`${Error.name ? 'inputempty' : 'input'}`} type='text' name='name' value={formvalues.name} onChange={handlechange} placeholder='Alexei Ward'/>
               </div>
               
               <div className='formemail'>
-                <label className='label'> email address</label>
-              <input className='input' name='email' type='email' value={formvalues.email} onChange={handlechange}/>
+                <label className='label'> email address {Error.email && <small>{Error.email}</small> }</label>
+              <input className={`${Error.email ? 'inputempty' : 'input'}`} name='email' type='email' value={formvalues.email} onChange={handlechange} placeholder='alexei@gmail.com'/>
               </div>
       
               
               </div>
 
               <div className='formnumber'>
-                <label className='label'>phone number </label>
-                <input className='input2' name='number' type='tel' value={formvalues.number} onChange={handlechange}/>
+                <label className='label'>phone number {Error.number && <small>{Error.number}</small> }</label>
+                <input className={`${Error.number ? 'input2empty' : 'input2'}`} name='number' type='tel' value={formvalues.number} onChange={handlechange} placeholder='+1202-555-0136'/>
               </div>
 
           </div>
@@ -163,29 +195,29 @@ setError(newerrors)
             </p>
 
             <div className='formaddress'>
-              <label className='label'> Address</label>
+              <label className='label'> Address {Error.address && <small>{Error.address}</small> } </label>
               
-                <input className='input3' name='address' type='text' value={formvalues.address} onChange={handlechange}/> 
+                <input className={`${Error.address ? 'input3empty' : 'input3'}`} name='address' type='text' value={formvalues.address} onChange={handlechange} placeholder='1137 Williams Avenue'/> 
               </div>
 
             <div className='secondform'>
               <div className='formzip'>
-                <label className='label'>zip code </label>
-              <input className='input' name='code' type='text' value={formvalues.code} onChange={handlechange}/>
+                <label className='label'>zip code {Error.code && <small>{Error.code}</small> } </label>
+              <input className={`${Error.code ? 'inputempty' : 'input'}`} name='code' type='text' value={formvalues.code} onChange={handlechange} placeholder='10001'/>
               </div>
 
 
               <div className='formcity'>
-                <label className='label'> city</label>
-              <input className='input' name='city' type='text' value={formvalues.city} onChange={handlechange}/>
+                <label className='label'> city {Error.city && <small>{Error.city}</small> }</label>
+              <input className={`${Error.city ? 'inputempty' : 'input'}`} name='city' type='text' value={formvalues.city} onChange={handlechange} placeholder='New York'/>
               </div>
               
               
               </div>
 
               <div className='formcountry'>
-                <label className='label'>country</label>
-                <input className='input2' name='country' type='text' value={formvalues.country} onChange={handlechange}/>
+                <label className='label'>country {Error.country && <small>{Error.country}</small> }</label>
+                <input className={`${Error.country ? 'input2empty' : 'input2'}`} name='country' type='text' value={formvalues.country} onChange={handlechange} placeholder='United States'/>
               </div>
               
               </div>
@@ -198,12 +230,13 @@ setError(newerrors)
 
 
                 <div className={`${isFocused? 'divradio1focus':'divradio1'}`} tabIndex={0}onClick={handleDivClick} onBlur={handleDivBlur} >
-                  <input type='radio' name='options' id='radio1'/>
+                  <input type='radio' name='options' id='radio1' value='option1' checked={radiovalue==='option1'} onChange={handleradiochange}/>
                   <label htmlFor='radio1'> e-Money</label>
                    </div>
 
                 <div className={`${isFocused2?'divradio2focus':'divradio2'}`} tabIndex={0} onClick={handleDivClick1} onBlur={handleDivBlur1}>
-                <input type='radio' name='options' id='radio2'/>
+                <input type='radio' name='options' id='radio2' value='option2' checked={radiovalue==='option2'} onChange={handleradiochange} />
+
                 <label htmlFor='radio2'> Cash on Delivery</label>
                 </div>
                 
@@ -211,6 +244,20 @@ setError(newerrors)
                 </div>
 
                 </div>
+                { radiovalue==='option1'?
+                <div className='radioption1div'>
+                  <div className='emoneynumber'>
+                    <label className='label'> e-Money Number</label>
+                  <input type='text' className='input' placeholder='238521993'/>
+                    </div>
+                    <div className='emoneypin'>
+                      <label className='label'>e-Money PIN</label>
+                      <input type='text' className='input' placeholder='6891'/>
+                    </div>
+                  
+                  
+                </div>:null }
+
                 
 
               </div>
@@ -268,7 +315,7 @@ setError(newerrors)
 
 
                 </div>
-                <button className='button' type='submit'> continue & pay </button>
+                <button className='button' type='submit' onClick={thankyou}> continue & pay </button>
 
               </section>
 
@@ -278,6 +325,7 @@ setError(newerrors)
       
 
     </section>
+    <Footer/>
         </Wrapper>
   )
 }
@@ -286,8 +334,7 @@ const Wrapper=styled.article`
 
 font-family:var(--fontfamily);
 background: #F2F2F2;
-min-height:200vh;
-padding-bottom:30px;
+min-height:150vh;
 
 .section{
 width:90%;
@@ -328,12 +375,24 @@ form{
       
     }
     margin-bottom:20px;
+
+    &::placeholder{
+      opacity:0.8;
+      font-weight:500;
+    }
   }
   .input{
     width:100%;
     height:40px;
     border-radius:5px;
     border: 1px solid gray;
+  }
+
+  .inputempty{
+    width:100%;
+    height:40px;
+    border-radius:5px;
+    border: 1px solid red;
   }
 
   .input2{
@@ -344,12 +403,25 @@ form{
   
   }
 
+  .input2empty{
+    width:100%;
+    height:40px;
+    border-radius:5px;
+    border: 1px solid red ; 
+  }
+
   .input3{
     width:100%;
     height:40px;
     border-radius:5px;
     border: 1px solid gray;
 
+  }
+  .input3empty{
+    width:100%;
+    height:40px;
+    border-radius:5px;
+    border: 1px solid red;
   }
 }
 
@@ -451,6 +523,7 @@ flex-direction:column;
 .formcountry{
   display:flex;
   flex-direction:column;
+  
 }
 
 .formaddress{
@@ -463,7 +536,13 @@ margin-bottom:10px;
 text-transform:capitalize;
 font-weight:700;
 display:flex;
+width:100%;
+font-size:14px;
+font-family:var(--fontfamily);
 justify-content:space-between;
+small{
+  color:red;
+}
 }
 
 .divform3begin{
@@ -687,7 +766,37 @@ font-size:13px;
       }
       
     }
+
+    input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid gray; /* Change the color here */
+  border-radius: 50%;
+  outline: none;
+  margin-right: 5px;
+}
+
+input[type="radio"]:checked {
+  background-color:#D87D4A ; /* Change the color here */
+}
+
+    .radioption1div{
+      margin-top:40px;
+      display:flex;
+      flex-direction:column;
+    }
+
+
+    .emoneynumber{
+      width:100%;
+    }
   
+    .emoneypin{
+      width:100%;
+    }
   
   
 
@@ -713,6 +822,7 @@ input{
 
 .input2{
   width:49%;
+  width:100%;
   height:40px;
   border-radius:5px;
   border: 1px solid gray;
@@ -809,6 +919,7 @@ flex-direction:column;
 .formnumber{
 display:flex;
 flex-direction:column;
+width:49%;
 
 }
 .formzip{
@@ -826,6 +937,7 @@ flex-direction:column;
 .formcountry{
 display:flex;
 flex-direction:column;
+width:49%;
 }
 
 .formaddress{
@@ -837,6 +949,7 @@ flex-direction:column;
 margin-bottom:10px;
 text-transform:capitalize;
 font-weight:700;
+font-size:14px;
 }
 
 .divform3begin{
@@ -1058,7 +1171,13 @@ font-size:13px;
       
     }
   
-  
+   
+
+.radioption1div{
+  flex-direction:row;
+  gap:2%;
+}
+
   
 }
 
