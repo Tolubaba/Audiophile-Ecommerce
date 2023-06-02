@@ -62,9 +62,9 @@ const Wrapper= styled.article`
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-color:black;
-  height: 70vh;
+  height: 400px;
   text-align:center;
-  padding-top:80px;
+  padding-top:50px;
 
 
 }
